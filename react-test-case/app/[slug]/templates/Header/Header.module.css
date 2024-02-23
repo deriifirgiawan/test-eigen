@@ -1,0 +1,10 @@
+.container {
+	background-color: #c31815;
+	padding: 12px;
+}
+
+.title {
+	font-size: 24px;
+	font-weight: bold;
+	color: #fff !important;
+}
