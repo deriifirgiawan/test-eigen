@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
-import { AntdRegistry } from "@ant-design/nextjs-registry";
+import { AppProvider } from "@/components/provider";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -18,7 +18,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={nunito.className}>
-				<AntdRegistry>{children}</AntdRegistry>
+				<AppProvider>{children}</AppProvider>
 			</body>
 		</html>
 	);
