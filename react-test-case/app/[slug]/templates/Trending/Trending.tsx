@@ -5,6 +5,7 @@ import styles from "./Trending.module.css";
 import { useMediaQuery } from "react-responsive";
 import { useRecoilValue } from "recoil";
 import { articleSelector } from "@/recoil";
+import { formatDate } from "@/utils";
 
 export const Trending = () => {
 	const isMobile = useMediaQuery({ maxWidth: 767 });
@@ -25,7 +26,12 @@ export const Trending = () => {
 				<Typography.Text>{detail?.content ?? "-"}</Typography.Text>
 
 				<Flex align="center" gap={12} style={{ marginTop: 24 }}>
-					<Typography.Paragraph>2 hours ago</Typography.Paragraph>
+					<Typography.Paragraph>
+						{formatDate(
+							detail?.publishedAt ?? new Date().toLocaleDateString(),
+							"DD MMM YYYY"
+						)}
+					</Typography.Paragraph>
 					<Typography.Paragraph>
 						By {detail?.author ?? "-"}
 					</Typography.Paragraph>

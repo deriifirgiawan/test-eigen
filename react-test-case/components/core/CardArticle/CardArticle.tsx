@@ -4,7 +4,7 @@ import { Card, Flex, Skeleton, Space, Typography } from "antd";
 import styles from "./CardArticle.module.css";
 import { Icon } from "../Icon";
 import { ICardArticle } from "./CardArticle.interface";
-import { trimText } from "@/utils";
+import { formatDate, trimText } from "@/utils";
 import SkeletonImage from "antd/es/skeleton/Image";
 
 export const CardArticle = (_props: ICardArticle) => {
@@ -45,10 +45,10 @@ export const CardArticle = (_props: ICardArticle) => {
 					</Typography.Paragraph>
 					<Flex gap={8}>
 						<Typography.Paragraph className="textBody">
-							2 hours ago
+							{formatDate(data.publishedAt, "DD MMM YYYY")}
 						</Typography.Paragraph>
 						<Typography.Paragraph className="textBody">
-							By {data.author ?? "-"}
+							By {data.author ?? "unknown"}
 						</Typography.Paragraph>
 					</Flex>
 				</Space>
